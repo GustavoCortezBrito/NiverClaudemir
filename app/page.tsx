@@ -12,10 +12,12 @@ export default function Home() {
   const [particles, setParticles] = useState<
     Array<{ id: number; x: number; delay: number; duration: number; size: number; type: number }>
   >([]);
+  const [mounted, setMounted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hoveredBtn, setHoveredBtn] = useState<string | null>(null);
 
   useEffect(() => {
+    setMounted(true);
     setParticles(
       Array.from({ length: 22 }, (_, i) => ({
         id: i,
@@ -23,7 +25,7 @@ export default function Home() {
         delay: Math.random() * 6,
         duration: 5 + Math.random() * 6,
         size: 2 + Math.random() * 5,
-        type: Math.floor(Math.random() * 3), // 0=prata, 1=azul, 2=branco
+        type: Math.floor(Math.random() * 3),
       }))
     );
   }, []);
@@ -79,8 +81,8 @@ export default function Home() {
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Partículas coloridas */}
-      {particles.map((p) => (
+      {/* Partículas coloridas — só renderiza no client */}
+      {mounted && particles.map((p) => (
         <motion.div
           key={p.id}
           className="absolute rounded-full pointer-events-none"
