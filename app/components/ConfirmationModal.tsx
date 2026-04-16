@@ -21,8 +21,8 @@ export default function ConfirmationModal({ isOpen, onClose }: ConfirmationModal
   };
 
   const addToCalendar = (type: 'google' | 'apple') => {
-    const startDate = '20260501T193000';
-    const endDate = '20260501T230000';
+    const startDate = '20260501T120000';
+    const endDate = '20260501T220000';
     const title = 'Aniversário do Claudemir';
     const details = `Confirmado por: ${formData.name}`;
     const location = 'Chacara Petrin, -22.2219202, -51.4386292';
@@ -88,9 +88,10 @@ export default function ConfirmationModal({ isOpen, onClose }: ConfirmationModal
           <motion.div
             className="max-w-md w-full p-6 sm:p-8 relative overflow-hidden"
             style={{
-              background: 'linear-gradient(145deg, #0d1b2a, #1a2d42)',
-              border: '1px solid rgba(168,180,192,0.35)',
+              background: 'linear-gradient(145deg, #060e1a, #0d2040)',
+              border: '1px solid rgba(100,160,230,0.4)',
               borderRadius: '4px',
+              boxShadow: '0 25px 70px rgba(0,0,0,0.7), 0 0 40px rgba(45,106,173,0.15)',
             }}
             initial={{ scale: 0.85, opacity: 0, y: 40 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -100,9 +101,9 @@ export default function ConfirmationModal({ isOpen, onClose }: ConfirmationModal
           >
             {/* Brilho de canto */}
             <div
-              className="absolute top-0 left-0 w-32 h-32 pointer-events-none"
+              className="absolute top-0 left-0 w-40 h-40 pointer-events-none"
               style={{
-                background: 'radial-gradient(circle at top left, rgba(168,180,192,0.08), transparent 70%)',
+                background: 'radial-gradient(circle at top left, rgba(77,143,212,0.12), transparent 70%)',
               }}
             />
 
@@ -124,9 +125,10 @@ export default function ConfirmationModal({ isOpen, onClose }: ConfirmationModal
                   className="text-2xl font-bold mb-2 tracking-widest"
                   style={{
                     fontFamily: "'Cinzel', serif",
-                    background: 'linear-gradient(135deg, #d0d8e0, #a8b4c0)',
+                    background: 'linear-gradient(135deg, #ffffff, #c8d8f0, #7ab4e8)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
+                    filter: 'drop-shadow(0 0 12px rgba(100,160,230,0.5))',
                   }}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -135,7 +137,7 @@ export default function ConfirmationModal({ isOpen, onClose }: ConfirmationModal
                   Presença Confirmada!
                 </motion.h3>
                 <motion.p
-                  style={{ color: '#8a9ab0', fontFamily: 'Montserrat' }}
+                  style={{ color: '#7aa8d8', fontFamily: 'Montserrat' }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.35 }}
@@ -150,9 +152,10 @@ export default function ConfirmationModal({ isOpen, onClose }: ConfirmationModal
                   className="text-xl sm:text-2xl font-bold mb-6 text-center tracking-widest"
                   style={{
                     fontFamily: "'Cinzel', serif",
-                    background: 'linear-gradient(135deg, #d0d8e0, #a8b4c0)',
+                    background: 'linear-gradient(135deg, #ffffff, #c8d8f0, #7ab4e8)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
+                    filter: 'drop-shadow(0 0 10px rgba(100,160,230,0.4))',
                   }}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -170,7 +173,7 @@ export default function ConfirmationModal({ isOpen, onClose }: ConfirmationModal
                     <motion.div key={field.name} custom={i} variants={fieldVariants} initial="hidden" animate="show">
                       <label
                         className="block text-xs font-semibold mb-2 tracking-[0.2em]"
-                        style={{ fontFamily: 'Montserrat', color: focusedField === field.name ? '#c0c8d0' : '#8a9ab0' }}
+                        style={{ fontFamily: 'Montserrat', color: focusedField === field.name ? '#c8d8f0' : '#7aa8d8' }}
                       >
                         {field.label} {field.required && '*'}
                       </label>
@@ -185,13 +188,13 @@ export default function ConfirmationModal({ isOpen, onClose }: ConfirmationModal
                         onBlur={() => setFocusedField(null)}
                         className="w-full px-4 py-2.5 focus:outline-none"
                         style={{
-                          background: 'rgba(13, 27, 42, 0.7)',
-                          border: `1px solid ${focusedField === field.name ? 'rgba(192,200,208,0.7)' : 'rgba(168,180,192,0.25)'}`,
-                          color: '#d0d8e0',
+                          background: 'rgba(6, 14, 26, 0.8)',
+                          border: `1px solid ${focusedField === field.name ? 'rgba(100,160,230,0.8)' : 'rgba(100,160,230,0.2)'}`,
+                          color: '#e8f0fe',
                           borderRadius: '3px',
                           fontFamily: 'Montserrat',
                           fontSize: '0.875rem',
-                          boxShadow: focusedField === field.name ? '0 0 12px rgba(168,180,192,0.12)' : 'none',
+                          boxShadow: focusedField === field.name ? '0 0 14px rgba(45,106,173,0.25)' : 'none',
                           transition: 'border 0.2s, box-shadow 0.2s',
                         }}
                       />
@@ -224,17 +227,17 @@ export default function ConfirmationModal({ isOpen, onClose }: ConfirmationModal
                     className="w-full font-bold py-3 tracking-[0.2em] disabled:opacity-50 relative overflow-hidden"
                     style={{
                       fontFamily: "'Rajdhani', sans-serif",
-                      background: 'linear-gradient(135deg, #1e3550, #243d56)',
-                      border: '1px solid rgba(168,180,192,0.5)',
-                      color: '#d0d8e0',
+                      background: 'linear-gradient(135deg, #0d2040, #1e3a5f)',
+                      border: '1px solid rgba(100,160,230,0.6)',
+                      color: '#c8d8f0',
                       borderRadius: '3px',
                       fontSize: '0.9rem',
                     }}
                     whileHover={{
-                      background: 'linear-gradient(135deg, #243d56, #2e4f6e)',
-                      borderColor: 'rgba(208,216,224,0.85)',
-                      color: '#f0f4f8',
-                      boxShadow: '0 0 25px rgba(168,180,192,0.25)',
+                      background: 'linear-gradient(135deg, #1e3a5f, #2d5a8e)',
+                      borderColor: 'rgba(200,216,240,0.9)',
+                      color: '#ffffff',
+                      boxShadow: '0 0 30px rgba(77,143,212,0.45)',
                       scale: 1.01,
                     }}
                     whileTap={{ scale: 0.98 }}
@@ -244,7 +247,7 @@ export default function ConfirmationModal({ isOpen, onClose }: ConfirmationModal
                       <span className="flex items-center justify-center gap-2">
                         <motion.span
                           className="inline-block w-4 h-4 border-2 border-t-transparent rounded-full"
-                          style={{ borderColor: '#a8b4c0', borderTopColor: 'transparent' }}
+                          style={{ borderColor: '#7ab4e8', borderTopColor: 'transparent' }}
                           animate={{ rotate: 360 }}
                           transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
                         />
@@ -254,17 +257,17 @@ export default function ConfirmationModal({ isOpen, onClose }: ConfirmationModal
                   </motion.button>
                 </form>
 
-                <div style={{ borderTop: '1px solid rgba(168,180,192,0.15)' }} className="pt-5">
+                <div style={{ borderTop: '1px solid rgba(100,160,230,0.15)' }} className="pt-5">
                   <p
                     className="text-xs font-semibold mb-3 text-center tracking-[0.2em]"
-                    style={{ fontFamily: 'Montserrat', color: '#6b7a8d' }}
+                    style={{ fontFamily: 'Montserrat', color: '#4d7aaa' }}
                   >
                     ADICIONAR À AGENDA
                   </p>
                   <div className="flex gap-3">
                     {[
-                      { type: 'google' as const, label: 'Google', color: 'rgba(66,133,244,0.15)', border: 'rgba(66,133,244,0.4)', text: '#90b4f0', hoverBg: 'rgba(66,133,244,0.28)', hoverBorder: 'rgba(66,133,244,0.7)' },
-                      { type: 'apple' as const, label: 'Apple', color: 'rgba(168,180,192,0.08)', border: 'rgba(168,180,192,0.25)', text: '#c0c8d0', hoverBg: 'rgba(168,180,192,0.2)', hoverBorder: 'rgba(168,180,192,0.6)' },
+                      { type: 'google' as const, label: 'Google', color: 'rgba(66,133,244,0.12)', border: 'rgba(66,133,244,0.35)', text: '#7ab4f0', hoverBg: 'rgba(66,133,244,0.3)', hoverBorder: 'rgba(66,133,244,0.8)' },
+                      { type: 'apple' as const, label: 'Apple', color: 'rgba(100,160,230,0.08)', border: 'rgba(100,160,230,0.25)', text: '#c8d8f0', hoverBg: 'rgba(100,160,230,0.2)', hoverBorder: 'rgba(100,160,230,0.65)' },
                     ].map((btn) => (
                       <motion.button
                         key={btn.type}
@@ -296,8 +299,8 @@ export default function ConfirmationModal({ isOpen, onClose }: ConfirmationModal
                 <motion.button
                   onClick={onClose}
                   className="w-full mt-4 py-2 font-semibold text-sm tracking-wider"
-                  style={{ fontFamily: 'Montserrat', color: '#4a5a6a' }}
-                  whileHover={{ color: '#8a9ab0', scale: 1.01 }}
+                  style={{ fontFamily: 'Montserrat', color: '#2d4a6a' }}
+                  whileHover={{ color: '#7aa8d8', scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ duration: 0.18 }}
                 >
